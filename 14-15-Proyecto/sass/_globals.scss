@@ -1,0 +1,252 @@
+@use "components";
+
+@mixin section-display{
+    width: 100;
+    max-width: 992px;
+    margin:auto;
+    padding:3rem;
+}
+
+html{
+    min-width: 100vw;
+}
+
+body{
+    padding:0;
+    margin:0;
+}
+
+.nav {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    border-bottom:solid 1 px #ddd;
+}
+.logo a img{
+    max-width: 5rem;
+}
+.sec-home{
+    display: flex;
+    align-items: center;
+    @include section-display();
+  
+    .home-cta {
+        flex:1;  //para que ocupe el máximo esta sección
+        .cta-text {
+            color:components.$color-main;
+            .home-title{
+                width: 20rem;
+                font-size: 3 rem;
+              
+            }
+            .home-description{
+                width: 400px;
+            }
+            .lead-magnet{
+                .input-col {
+                    max-width: 300px;
+                }
+            }
+
+        }
+    }
+}
+.sec-features {
+    @include section-display();
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    .intro {
+       text-align: center;
+       
+       h3 {
+        font-size: 1.8rem; //este es el texto que estaba MAL A LA DERECHA
+       }
+       p{
+        font-size: 0.8rem;
+        color:#888;
+       }
+    }
+    .features{
+        display:flex;
+        gap:1rem;
+        align-items: center;
+        
+      
+       
+
+        .text { 
+            padding:2rem 0;
+            flex: 1;
+            .feature{
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+               
+                .description{
+                    margin-left: 1rem;
+                    max-width: 30rem; //ponía 30 rem
+                    .description-title {
+                     
+                        font-size: 1.15rem;
+
+                    }
+                    .description-text{
+                        font-size: 1rem;
+                        width: 100%;
+
+                    }
+                }
+
+            }
+
+        }
+        
+    }
+
+}
+//REVISAR ESTA IMAGEN
+/*.image {
+    img {
+        max-width: 20rem;
+        display: flex;
+        //IMAGEN QUE HAY QUE PONER A LA DERECHA
+
+    }
+}*/
+.sec-benefits {
+    border-top: 1px solid #ddd;
+   
+   .intro{ @extend .sec-features, .intro;
+   }
+   
+   .benefit-cards{
+    width: 100%;
+    padding: 0 2rem 2rem 2rem;
+   }
+}
+   
+
+
+
+.sec-kpis{
+    width: 100%;
+    background-color: components.$color-main;
+    color:white;
+    padding:4rem;
+    .kpi{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        .number {
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.sec-onboarding{
+    .intro{
+        @extend .sec-features, .intro;
+   
+        }
+    }
+    .steps{
+        //padding:0 7rem 5rem 7rem;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      
+        .step-separator  {
+            flex:1;
+            border-top:2px solid #ddd;
+            margin:0 2rem;
+        }
+
+    }
+
+
+
+
+.sec-footer-cta {
+    background-color: components.$footer-color;
+    padding: 5rem 5rem;
+    background-image: url("../assets/img/espacio.png");
+    background-repeat: no-repeat;
+    background-position: 100%;
+   
+    background-position: 100%;
+    .footer-cta {
+        width: 30%;
+        .cta-title{
+            font-size:2rem;
+        }
+        .cta-description {
+           
+            font-size:1.1rem;
+            width: 300px;
+        }
+    }
+    
+}
+
+@media (max-width:768px){
+    .sec-onboarding{
+        .steps{
+            flex-direction: column;
+            .icon-desc {
+                .title {
+                    text-align:center;
+                }
+            }
+        }
+    .sec-footer-cta {
+        background-image :none;
+        width: 100%;
+        text-align: center;
+
+    .sec-benefits {
+        .intro {
+        text-align: center;
+        .intro h3{
+            font-size: 2rem;
+        }
+     .sec-features {
+        .intro p{
+            font-size: 1rem;
+        }
+        h3 {
+            font-size:2rem;
+        }
+     }
+
+        }
+    }
+    }
+
+ 
+    .sec-footer-cta {
+        padding:5rem 5 rem;
+        background-image:none;
+        .footer-cta{
+            width: 40%;
+            text-align:center;
+        }
+        p.cta-description {
+            display:flex;
+            max-width: 30%;
+        }
+        .sec-benefits {
+            .intro {
+                text-align: center;
+                font-size: 2rem ;
+                .h3{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+}

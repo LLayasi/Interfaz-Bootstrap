@@ -1,0 +1,249 @@
+@mixin btn-base{
+padding:0.5 rem 1 rem;
+border: 0.25 rem;
+}
+
+@mixin btn-sm-modify{
+    font-size:0.75rem;
+    padding:0.1rem 1 rem;
+    border:none;
+
+}
+@mixin section-display{
+  width: 100%;
+  max-width: 992px;
+  margin: auto;
+  padding:3rem;
+
+}
+$color-main:  #000000;
+$footer-color: #aae6f9;
+
+//btn-main
+
+.btn-main {
+    @include btn-base();
+background-color: $color-main;
+color:white;
+border-radius: 0.25rem;
+border: solid 1 px $color-main;
+
+
+&:hover{
+    background-color: white;
+    color:$color-main;
+    border:solid 1px $color-main;
+}
+
+&-s {
+    @extend .btn-main;
+    @include btn-sm-modify();
+}
+}
+
+
+.btn-sec{
+ @include btn-base();
+border:none;
+color:grey;
+background-color: transparent;
+
+
+&-hover {
+   color:#888;
+}
+
+&-s {
+ @extend .btn-sec;
+ @include btn-sm-modify()
+ }
+
+}
+
+.main-menu{
+    margin-bottom: 0;
+ li {
+    font-size: 0.75rem;
+    list-style: none;
+    display:inline;
+    margin-right: 2rem;
+    a {
+        color:#000000;
+        text-decoration: none; //para que no esté subrayado
+        &:hover {
+            text-decoration: underline;
+           
+        }
+    }
+ }
+}
+
+.icon-sm{
+    
+    i{
+    font-size: 1.25rem;
+    padding:0.4rem 0.65 rem;
+    color:$color-main;
+    border: 50%;
+   
+
+}
+}
+
+.benefit { //SECCIÓN ICONO DEL OJO
+    display:flex;
+    flex-direction: colum;
+    align-items: center;
+    justify-self: center;
+    .icon{ //OJO
+        color:$color-main;
+        font-size:10rem;
+        text-align: center;
+        
+      
+    }
+    .description{
+       .title { //SECURE STORAGE
+            font-size: 2rem;
+            text-align: center;
+            text-align: center;
+        }
+        .text {
+            color:#888;
+            font-weight: 1.5rem;
+        }
+    }
+    .cta { //SEGUNDA DESCRIPCIÓN
+        color:$color-main;
+        font-weight: 600;
+        text-align: center;
+
+    }
+}
+
+.icon-desc{ //ICONOS DE LINK YOUR BANK, CREATE AN ACCOUT, PURCHASE SOME COIN
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    .icon{
+        color:$color-main;
+        font-size: 10rem;
+        padding: 0;
+
+    }
+    .title{
+        margin-top: -1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+   
+
+    }
+}
+
+.sec-feactures{
+    @include section-display();
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .intro{
+        text-align: center;
+
+    }
+}
+    
+  
+.feature {
+        display:flex;
+        gap:1rem;
+        align-items: center;
+        
+        .text {
+            padding:2rem 0;
+            flex: 1;
+            .feature {
+                display:flex;
+                flex-direction:row;
+                align-items: center;
+                .description {
+                    margin-left: 1rem;
+                    max-width: 20rem;
+                    .description-title{
+                        font-size: 1.15rem;
+
+                    }
+                    .description-text{
+                        font-size: 1rem;
+                        
+
+                    }
+                }
+            }
+
+        }
+    
+       
+   }
+
+
+.benefit {
+    display:flex;
+    flex-direction: column;
+    .icon{
+        color:$color-main;
+        font-size: 7.5rem;
+        text-align:center;
+    }
+    .description {
+        .title {
+            font-size: 2rem;
+            text-align: center;
+        }
+        .text {
+            color:#888;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+    .cta{
+        margin-top: 3rem;
+        color:$color-main;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+.sec-benefits{
+    border-top:1px solid #ddd;
+    .intro {
+        @extend .sec-feactures, .intro;
+    }
+    benefit-cards {
+        width: 90%;
+        padding: 0 2rem 2rem 2rem; //orden: arriba derecha abajo izquida
+    }
+}
+
+.sec-onboarding{
+    .intro{
+      
+        @extend .sec-feactures, .intro;
+        width: 100%;
+        justify-content: center; 
+        align-items: center; 
+        //INTRO QUE YA FUNCIONA
+    }
+}
+
+.sec-footer-cta {
+    background-color: rgb(79, 210, 250);
+}
+
+
+
+
+
+
+
+
